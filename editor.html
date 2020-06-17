@@ -1,0 +1,73 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
+	<script src="https://www.layuicdn.com/layui/layui.js"></script>
+</head>
+<body>
+
+
+	<table id="selected" lay-filter="test"></table>
+	
+	<div class="layui-btn-container">
+	  <button type="button" class="layui-btn">批量修改</button>
+	  <button type="button" class="layui-btn">批量删除</button>
+	</div>
+	
+	<table id="all" lay-filter="test"></table>
+
+	<script>
+	layui.use('table', function(){
+	  var table = layui.table;
+	  
+	  //第一个实例
+	  table.render({
+		elem: '#selected'
+		,height: 312
+		,url: '/demo/table/user/' //数据接口
+		,page: true //开启分页
+		,cols: [[ //表头
+		  {field: 'check', type: 'checkbox', fixed: 'left'}
+		  ,{field: 'id', title: 'ID', width:80, sort: true}
+		  ,{field: 'year', title: '年度', width:80, edit: 'text'}
+		  ,{field: 'sno', title: '学号', width:80, sort: true, edit: 'text'}
+		  
+		  ,{field: 'sex', title: '性别', width:80, edit: 'text'} 
+		  ,{field: 'type', title: '毕业去向', edit: 'text'}
+		  ,{field: 'unit', title: '实际单位', sort: true, edit: 'text'}
+		  ,{field: 'unitaddr', title: '单位所在地', sort: true, edit: 'text'}
+		  ,{field: 'unitaffiliation', title: '单位隶属', edit: 'text'}
+		  ,{field: 'unitproperty', title: '单位性质', sort: true, edit: 'text'}
+		  ,{field: 'unittype', title: '单位类型', sort: true, edit: 'text'}
+		  ,{field: 'industryproperty', title: '行业性质', sort: true, edit: 'text'}
+		]]
+		  
+	  });
+	  
+	  
+	  table.render({
+		elem: '#all'
+		//,height: 312
+		,url: '/demo/table/user/' //数据接口
+		,page: true //开启分页
+		,cols: [[ //表头
+		  {field: 'check', type: 'checkbox', fixed: 'left'}
+		  ,{field: 'id', title: 'ID', width:80, sort: true}
+		  ,{field: 'year', title: '年度', width:80, edit: 'text', edit: 'text'}
+		  ,{field: 'sno', title: '学号', width:80, sort: true, edit: 'text'}
+		  
+		  ,{field: 'sex', title: '性别', width:80, edit: 'text'} 
+		  ,{field: 'type', title: '毕业去向', edit: 'text'}
+		  ,{field: 'unit', title: '实际单位', sort: true, edit: 'text'}
+		  ,{field: 'unitaddr', title: '单位所在地', sort: true, edit: 'text'}
+		  ,{field: 'unitaffiliation', title: '单位隶属', edit: 'text'}
+		  ,{field: 'unitproperty', title: '单位性质', sort: true, edit: 'text'}
+		  ,{field: 'unittype', title: '单位类型', sort: true, edit: 'text'}
+		  ,{field: 'industryproperty', title: '行业性质', sort: true, edit: 'text'}
+		]]
+		  
+	  });
+	});
+	</script>
+
+</body>
+</html>
