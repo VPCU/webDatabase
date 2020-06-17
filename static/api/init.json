@@ -29,7 +29,7 @@
         },
         {
           "title": "报表展示",
-          "href": "page/edit-data.html",
+          "href": "page/table-show.html",
           "icon": "fa fa-file-text",
           "target": "_self"
         },
