@@ -32,6 +32,14 @@
 <body>
 <!--<div class="layuimini-container">-->
 <div class="layuimini-main">
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">2016</li>
+            <li>2017</li>
+            <li>2018</li>
+        </ul>
+        <div class="layui-tab-content"></div>
+    </div>
 
     <div class="layui-row layui-col-space15">
         <div class="layui-col-xs12 layui-col-md3">
@@ -162,9 +170,10 @@
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['layer'], function () {
+    layui.use(['layer', 'element'], function () {
         var $ = layui.jquery,
-            layer = layui.layer
+            layer = layui.layer,
+            element = layer.element
     });
 </script>
 </body>
