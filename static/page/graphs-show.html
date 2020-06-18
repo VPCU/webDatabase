@@ -32,7 +32,14 @@
 <body>
 <!--<div class="layuimini-container">-->
 <div class="layuimini-main">
-
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">2016</li>
+            <li>2017</li>
+            <li>2018</li>
+        </ul>
+        <div class="layui-tab-content"></div>
+    </div>
     <div class="layui-row layui-col-space15">
         <div class="layui-col-xs12 layui-col-md3">
 
@@ -85,248 +92,177 @@
     </div>
 
     <div class="layui-row layui-col-space15">
-        <div class="layui-col-xs12 layui-col-md9">
-            <div id="echarts-records" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+        <div class="layui-col-xs12 layui-col-md4">
+            <div class="layui-card top-panel">
+                <div class="layui-card-header">毕业去向</div>
+                <div id="echarts-years" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+            </div>
         </div>
-        <div class="layui-col-xs12 layui-col-md3">
-            <div id="echarts-pies" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+        <div class="layui-col-xs12 layui-col-md4">
+            <div class="layui-card top-panel">
+                <div class="layui-card-header">单位性质</div>
+                <div id="echarts-types" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+            </div>
+        </div>
+        <div class="layui-col-xs12 layui-col-md4">
+            <div class="layui-card top-panel">
+                <div class="layui-card-header">行业类型</div>
+                <div id="echarts-industry" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+            </div>
+        </div>
+        <div class="layui-col-xs12 layui-col-md12">
+            <div class="layui-card top-panel">
+                <div class="layui-card-header">地区分布</div>
+                <div id="echarts-map" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+            </div>
         </div>
     </div>
-
-
-    <div class="layui-row layui-col-space15">
-        <div class="layui-col-xs12 layui-col-md6">
-            <div id="echarts-dataset" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
-        </div>
-        <div class="layui-col-xs12 layui-col-md6">
-            <div id="echarts-map" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
-        </div>
-    </div>
-
 
 </div>
 <!--</div>-->
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['layer', 'echarts'], function () {
+    layui.use(['layer', 'echarts', 'element'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
-            echarts = layui.echarts;
+            echarts = layui.echarts,
+            element = layui.element;
 
         /**
          * 报表功能
          */
-        var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+        var echartsRecords = echarts.init(document.getElementById('echarts-years'), 'walden');
 
         var optionRecords = {
-            title: {
-                text: '指标名称-报表图'
-            },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        backgroundColor: '#6a7985'
-                    }
-                }
-            },
-            legend: {
-                data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
-            },
-            toolbox: {
-                feature: {
-                    saveAsImage: {}
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
-            series: [
-                {
-                    name: '邮件营销',
-                    type: 'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data: [120, 132, 101, 134, 90, 230, 210]
-                },
-                {
-                    name: '联盟广告',
-                    type: 'line',
-                    areaStyle: {},
-                    data: [220, 182, 191, 234, 290, 330, 310]
-                },
-                {
-                    name: '视频广告',
-                    type: 'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data: [150, 232, 201, 154, 190, 330, 410]
-                },
-                {
-                    name: '直接访问',
-                    type: 'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data: [320, 332, 301, 334, 390, 330, 320]
-                },
-                {
-                    name: '搜索引擎',
-                    type: 'line',
-                    stack: '总量',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'top'
-                        }
-                    },
-                    areaStyle: {},
-                    data: [820, 932, 901, 934, 1290, 1330, 1320]
-                }
-            ]
-        };
-        echartsRecords.setOption(optionRecords);
-
-
-        /**
-         * 玫瑰图表
-         */
-        var echartsPies = echarts.init(document.getElementById('echarts-pies'), 'walden');
-        var optionPies = {
-            title: {
-                text: '指标名称-玫瑰图',
-                left: 'center'
-            },
             tooltip: {
                 trigger: 'item',
-                formatter: '{a} <br/>{b} : {c} ({d}%)'
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
             },
             legend: {
                 orient: 'vertical',
-                left: 'left',
+                left: 10,
                 data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
             },
             series: [
                 {
-                    name: '访问来源',
+                    name: '毕业去向',
                     type: 'pie',
-                    radius: '55%',
-                    center: ['50%', '60%'],
-                    roseType: 'radius',
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
                     data: [
                         {value: 335, name: '直接访问'},
                         {value: 310, name: '邮件营销'},
                         {value: 234, name: '联盟广告'},
                         {value: 135, name: '视频广告'},
-                        {value: 368, name: '搜索引擎'}
-                    ],
-                    emphasis: {
-                        itemStyle: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
+                        {value: 1548, name: '搜索引擎'}
+                    ]
                 }
             ]
         };
-        echartsPies.setOption(optionPies);
+        echartsRecords.setOption(optionRecords);
 
+        var echartsRecords = echarts.init(document.getElementById('echarts-types'), 'walden');
 
-        /**
-         * 柱状图
-         */
-        var echartsDataset = echarts.init(document.getElementById('echarts-dataset'), 'walden');
-
-        var optionDataset = {
-            legend: {},
-            tooltip: {},
-            dataset: {
-                dimensions: ['product', '2015', '2016', '2017'],
-                source: [
-                    {product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7},
-                    {product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1},
-                    {product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5},
-                    {product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1}
-                ]
-            },
-            xAxis: {type: 'category'},
-            yAxis: {},
-            // Declare several bar series, each will be mapped
-            // to a column of dataset.source by default.
-            series: [
-                {type: 'bar'},
-                {type: 'bar'},
-                {type: 'bar'}
-            ]
-        };
-
-        echartsDataset.setOption(optionDataset);
-
-
-        /**
-         * 中国地图
-         */
-        var echartsMap = echarts.init(document.getElementById('echarts-map'), 'walden');
-
-
-        var optionMap = {
-            legend: {},
+        var optionRecords = {
             tooltip: {
-                trigger: 'axis',
-                showContent: false
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
             },
-            dataset: {
-                source: [
-                    ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-                    ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
-                    ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
-                    ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
-                    ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
-                ]
+            legend: {
+                orient: 'vertical',
+                left: 10,
+                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
             },
-            xAxis: {type: 'category'},
-            yAxis: {gridIndex: 0},
-            grid: {top: '55%'},
             series: [
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
                 {
+                    name: '单位性质',
                     type: 'pie',
-                    id: 'pie',
-                    radius: '30%',
-                    center: ['50%', '25%'],
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
                     label: {
-                        formatter: '{b}: {@2012} ({d}%)'
+                        show: false,
+                        position: 'center'
                     },
-                    encode: {
-                        itemName: 'product',
-                        value: '2012',
-                        tooltip: '2012'
-                    }
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {value: 335, name: '直接访问'},
+                        {value: 310, name: '邮件营销'},
+                        {value: 234, name: '联盟广告'},
+                        {value: 135, name: '视频广告'},
+                        {value: 1548, name: '搜索引擎'}
+                    ]
                 }
             ]
         };
+        echartsRecords.setOption(optionRecords);
 
-        echartsMap.setOption(optionMap);
+        var echartsRecords = echarts.init(document.getElementById('echarts-industry'), 'walden');
+
+        var optionRecords = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 10,
+                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+            },
+            series: [
+                {
+                    name: '行业类型 ',
+                    type: 'pie',
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {value: 335, name: '直接访问'},
+                        {value: 310, name: '邮件营销'},
+                        {value: 234, name: '联盟广告'},
+                        {value: 135, name: '视频广告'},
+                        {value: 1548, name: '搜索引擎'}
+                    ]
+                }
+            ]
+        };
+        echartsRecords.setOption(optionRecords);
 
 
         // echarts 窗口缩放自适应
@@ -335,6 +271,74 @@
         }
 
     });
+</script>
+
+<script src="https://lib.baomitu.com/echarts/4.7.0/echarts.js"></script>
+<script src="../js/echarts/map/js/china.js"></script>
+<script>
+
+    function randomData() {
+        return Math.round(Math.random()*500);
+    }
+    var dataList = [
+        {name: '北京',value: '100' },{name: '天津',value: randomData() },
+        {name: '上海',value: randomData() },{name: '重庆',value: randomData() },
+        {name: '河北',value: randomData() },{name: '河南',value: randomData() },
+        {name: '云南',value: randomData() },{name: '辽宁',value: randomData() },
+        {name: '黑龙江',value: randomData() },{name: '湖南',value: randomData() },
+        {name: '安徽',value: randomData() },{name: '山东',value: randomData() },
+        {name: '新疆',value: randomData() },{name: '江苏',value: randomData() },
+        {name: '浙江',value: randomData() },{name: '江西',value: randomData() },
+        {name: '湖北',value: randomData() },{name: '广西',value: randomData() },
+        {name: '甘肃',value: randomData() },{name: '山西',value: randomData() },
+        {name: '内蒙古',value: randomData() },{name: '陕西',value: randomData() },
+        {name: '吉林',value: randomData() },{name: '福建',value: randomData() },
+        {name: '贵州',value: randomData() },{name: '广东',value: randomData() },
+        {name: '青海',value: randomData() },{name: '西藏',value: randomData() },
+        {name: '四川',value: randomData() },{name: '宁夏',value: randomData() },
+        {name: '海南',value: randomData() },{name: '台湾',value: randomData() },
+        {name: '香港',value: randomData() },{name: '澳门',value: randomData() }
+    ];
+    var echartsRecords = echarts.init(document.getElementById('echarts-map'));
+    var optionRecords = {
+        backgroundColor: '#FFFFFF',
+        tooltip : {
+            trigger: 'item'
+        },
+
+        //左侧小导航图标
+        visualMap: {
+            show : true,
+            x: 'left',
+            y: 'center',
+            splitList: [
+                {start: 500, end:600},{start: 400, end: 500},
+                {start: 300, end: 400},{start: 200, end: 300},
+                {start: 100, end: 200},{start: 0, end: 100},
+            ],
+            color: ['#5475f5', '#9feaa5', '#85daef','#74e2ca', '#e6ac53', '#9fb5ea']
+        },
+
+        //配置属性
+        series: [{
+            name: '数据',
+            type: 'map',
+            mapType: 'china',
+            roam: true,
+            label: {
+                normal: {
+                    show: true  //省份名称
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            data:dataList  //数据
+        }]
+    };
+
+    //使用制定的配置项和数据显示图表
+    echartsRecords.setOption(optionRecords);
 </script>
 </body>
 </html>
