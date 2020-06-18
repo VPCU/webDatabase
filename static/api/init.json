@@ -4,13 +4,13 @@
     "href": "page/main-page.html"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
+    "title": "就业数据管理",
     "image": "images/logo.png",
     "href": ""
   },
   "menuInfo": [
     {
-      "title": "毕业信息管理",
+      "title": "毕业生就业数据管理系统",
       "icon": "fa fa-address-book",
       "href": "",
       "target": "_self",
@@ -22,7 +22,7 @@
           "target": "_self"
         },
         {
-          "title": "编辑数据",
+          "title": "数据编辑",
           "href": "page/edit-data.html",
           "icon": "fa fa-file-text",
           "target": "_self"
@@ -40,7 +40,7 @@
           "target": "_self"
         },
         {
-          "title": "导入/导出数据",
+          "title": "导入/导出",
           "href": "page/eximport.html",
           "icon": "fa fa-cloud-upload",
           "target": "_self"
