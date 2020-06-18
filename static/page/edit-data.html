@@ -90,7 +90,8 @@
         <script type="text/html" id="toolbarDemo">
             <div class="layui-btn-container">
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
-                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 批量编辑 </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 批量删除 </button>
             </div>
         </script>
 
@@ -121,10 +122,8 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'id', title: 'ID', width:80, sort: true}
-                ,{field: 'year', title: '年度', width:80, sort: true}
                 ,{field: 'sno', title: '学号', width:80, sort: true,}
-
+                ,{field: 'year', title: '年度', width:80, sort: true}
                 ,{field: 'sex', title: '性别', width:80, sort: true}
                 ,{field: 'type', title: '毕业去向', sort: true}
                 ,{field: 'unit', title: '实际单位', sort: true}
