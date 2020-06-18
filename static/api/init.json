@@ -1,7 +1,7 @@
 {
   "homeInfo": {
     "title": "首页",
-    "href": "page/welcome-2.html?t=1"
+    "href": "page/main-page.html?t=1"
   },
   "logoInfo": {
     "title": "LAYUI MINI",
@@ -17,7 +17,7 @@
       "child": [
         {
           "title": "首页",
-          "href": "page/welcome-2.html",
+          "href": "page/main-page.html",
           "icon": "fa fa-home",
           "target": "_self"
         },
