@@ -193,7 +193,7 @@
         var echartsPies = echarts.init(document.getElementById('echarts-pies'), 'walden');
         var optionPies = {
             title: {
-                text: '毕业去向-玫瑰图',
+                text: '毕业去向',
                 left: 'center'
             },
             tooltip: {
@@ -202,8 +202,8 @@
             },
             legend: {
                 orient: 'vertical',
-                left: 'left',
-                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                left: 'right',
+                data: ['保送升学', '出国学习', '升学', '考取升学', '非全日制','灵活就业','定向就业','签约就业','非派遣','非派遣/劳动合同','未就业']
             },
             series: [
                 {
@@ -223,7 +223,7 @@
                         {value: 166, name: '签约就业'},
                         {value: 24, name: '非派遣'},
                         {value: 3, name: '非派遣/劳动合同'},
-                        {value: 2, name: '未就业'},
+                        {value: 2, name: '未就业'}
 
                     ],
                     emphasis: {
