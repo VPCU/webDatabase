@@ -39,7 +39,7 @@
                 <div class="layui-card-header">学生总数</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        333
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="layui-card-header">升学率</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        30.0%
                     </div>
                 </div>
             </div>
@@ -58,10 +58,10 @@
 
         <div class="layui-col-xs12 layui-col-md3">
             <div class="layui-card top-panel">
-                <div class="layui-card-header">学生总数</div>
+                <div class="layui-card-header">出国出境</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        4人
                     </div>
                 </div>
             </div>
@@ -69,10 +69,10 @@
 
         <div class="layui-col-xs12 layui-col-md3">
             <div class="layui-card top-panel">
-                <div class="layui-card-header">学生总数</div>
+                <div class="layui-card-header">最受欢迎的行业</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        信息传输软件和信息技术服务业 64.1%
                     </div>
                 </div>
             </div>
@@ -123,9 +123,9 @@
                     }
                 }
             },
-            legend: {
-                data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
-            },
+            //legend: {
+            //    data: ['2016', '2017', '2018']
+            //},
             toolbox: {
                 feature: {
                     saveAsImage: {}
@@ -141,54 +141,22 @@
                 {
                     type: 'category',
                     boundaryGap: false,
-                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    data: ['2016', '2017', '2018']
                 }
             ],
             yAxis: [
                 {
-                    type: 'value'
+                    type: 'value',
+                    max: 100
                 }
             ],
             series: [
                 {
-                    name: '邮件营销',
+                    name: '升学率',
                     type: 'line',
                     stack: '总量',
                     areaStyle: {},
-                    data: [120, 132, 101, 134, 90, 230, 210]
-                },
-                {
-                    name: '联盟广告',
-                    type: 'line',
-                    areaStyle: {},
-                    data: [220, 182, 191, 234, 290, 330, 310]
-                },
-                {
-                    name: '视频广告',
-                    type: 'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data: [150, 232, 201, 154, 190, 330, 410]
-                },
-                {
-                    name: '直接访问',
-                    type: 'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data: [320, 332, 301, 334, 390, 330, 320]
-                },
-                {
-                    name: '搜索引擎',
-                    type: 'line',
-                    stack: '总量',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'top'
-                        }
-                    },
-                    areaStyle: {},
-                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                    data: [32, 27, 23]
                 }
             ]
         };
@@ -221,11 +189,18 @@
                     center: ['50%', '60%'],
                     roseType: 'radius',
                     data: [
-                        {value: 335, name: '直接访问'},
-                        {value: 310, name: '邮件营销'},
-                        {value: 234, name: '联盟广告'},
-                        {value: 135, name: '视频广告'},
-                        {value: 368, name: '搜索引擎'}
+                        {value: 12, name: '保送升学'},
+                        {value: 4, name: '出国学习'},
+                        {value: 61, name: '升学'},
+                        {value: 27, name: '考取升学'},
+                        {value: 1, name: '非全日制'},
+                        {value: 24, name: '灵活就业'},
+                        {value: 9, name: '定向就业'},
+                        {value: 166, name: '签约就业'},
+                        {value: 24, name: '非派遣'},
+                        {value: 3, name: '非派遣/劳动合同'},
+                        {value: 2, name: '未就业'},
+
                     ],
                     emphasis: {
                         itemStyle: {
