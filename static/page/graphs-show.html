@@ -47,7 +47,7 @@
                 <div class="layui-card-header">学生总数</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        98
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="layui-card-header">男女比例</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        2.27:1
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 <div class="layui-card-header">就业率</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        9,054,056
+                        65.3%
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="layui-card-header">升学率</div>
                 <div class="layui-card-body">
                         <div class="top-panel-number">
-                            9,054,056
+                            30.6%
                         </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
         </div>
         <div class="layui-col-xs12 layui-col-md12">
             <div class="layui-card top-panel">
-                <div class="layui-card-header">地区分布</div>
+                <div class="layui-card-header">毕业去向汇总</div>
                 <div id="echarts-map" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
             </div>
         </div>
@@ -142,7 +142,7 @@
             legend: {
                 orient: 'vertical',
                 left: 10,
-                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                data: ['升学', '出国', '签约就业', '灵活就业', '非派遣/劳动合同', '未就业']
             },
             series: [
                 {
@@ -165,11 +165,12 @@
                         show: false
                     },
                     data: [
-                        {value: 335, name: '直接访问'},
-                        {value: 310, name: '邮件营销'},
-                        {value: 234, name: '联盟广告'},
-                        {value: 135, name: '视频广告'},
-                        {value: 1548, name: '搜索引擎'}
+                        {value: 30, name: '升学'},
+                        {value: 2, name: '出国'},
+                        {value: 49, name: '签约就业'},
+                        {value: 13, name: '灵活就业'},
+                        {value: 2, name: '非派遣/劳动合同'},
+                        {value: 2, name: '未就业'}
                     ]
                 }
             ]
@@ -186,7 +187,7 @@
             legend: {
                 orient: 'vertical',
                 left: 10,
-                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                data: ['211高校', '985高校', '国有企业', '出国出境', '艰苦行业企业','科研设计单位', '灵活企业', '其他企业', '三资企业', '未就业']
             },
             series: [
                 {
@@ -209,13 +210,18 @@
                         show: false
                     },
                     data: [
-                        {value: 335, name: '直接访问'},
-                        {value: 310, name: '邮件营销'},
-                        {value: 234, name: '联盟广告'},
-                        {value: 135, name: '视频广告'},
-                        {value: 1548, name: '搜索引擎'}
+                        {value: 22, name: '211高校'},
+                        {value: 8, name: '985高校'},
+                        {value: 25, name: '国有企业'},
+                        {value: 2, name: '出国出境'},
+                        {value: 2, name: '艰苦行业企业'},
+                        {value: 1, name: '科研设计单位'},
+                        {value: 2, name: '灵活企业'},
+                        {value: 32, name: '其他企业'},
+                        {value: 2, name: '三资企业'},
+                        {value: 2, name: '未就业'},
                     ]
-                }
+    }
             ]
         };
         echartsRecords.setOption(optionRecords);
@@ -230,7 +236,7 @@
             legend: {
                 orient: 'vertical',
                 left: 10,
-                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                data: ['采矿业', '电力、热力、燃气及水生产和供应业', '建筑业', '交通运输、仓储和邮政业', '科学研究和技术服务业','信息传输软件和信息技术服务业','制造业','租赁和商业服务业', '高校', '未就业']
             },
             series: [
                 {
@@ -253,11 +259,17 @@
                         show: false
                     },
                     data: [
-                        {value: 335, name: '直接访问'},
-                        {value: 310, name: '邮件营销'},
-                        {value: 234, name: '联盟广告'},
-                        {value: 135, name: '视频广告'},
-                        {value: 1548, name: '搜索引擎'}
+                        {value: 4, name: '采矿业'},
+                        {value: 1, name: '电力、热力、燃气及水生产和供应业'},
+                        {value: 1, name: '建筑业'},
+                        {value: 4, name: '金融业'},
+                        {value: 2, name: '交通运输、仓储和邮政业'},
+                        {value: 2, name: '科学研究和技术服务业'},
+                        {value: 41, name: '信息传输软件和信息技术服务业'},
+                        {value: 3, name: '制造业'},
+                        {value: 6, name: '租赁和商业服务业'},
+                        {value: 32, name: '高校'},
+                        {value: 2, name: '未就业'},
                     ]
                 }
             ]
@@ -269,13 +281,33 @@
         var optionRecords = {
             xAxis: {
                 type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: ['升学', '出国', '签约就业', '灵活就业', '非派遣/劳动合同', '未就业']
             },
             yAxis: {
                 type: 'value'
             },
+            legend: {
+                data: ['2016', '2017', '2018']
+            },
             series: [{
-                data: [120, 200, 150, 80, 70, 110, 130],
+                name: "2016",
+                data: [30, 2, 49, 13, 2, 2],
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: 'rgba(220, 220, 220, 0.8)'
+                }
+            }, {
+                name: "2017",
+                data: [31, 2, 64, 11, 1, 9],
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: 'rgba(220, 220, 220, 0.8)'
+                },
+            }, {
+                name: "2018",
+                data: [40, 0, 53, 0, 24, 0],
                 type: 'bar',
                 showBackground: true,
                 backgroundStyle: {
