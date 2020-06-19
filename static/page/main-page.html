@@ -72,7 +72,7 @@
                 <div class="layui-card-header">最受欢迎的行业</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        信息技术行业 64.1%
+                        信息技术64.1%
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
                     areaStyle: {},
                     data: [2,1,24]
                 } ,   {
-                    name: '其他',
+                    name: '其他就业',
                     type: 'line',
                     stack: '总量',
                     areaStyle: {},
@@ -193,7 +193,7 @@
         var echartsPies = echarts.init(document.getElementById('echarts-pies'), 'walden');
         var optionPies = {
             title: {
-                text: '毕业去向',
+                text: '毕业去向-玫瑰图',
                 left: 'center'
             },
             tooltip: {
@@ -202,8 +202,8 @@
             },
             legend: {
                 orient: 'vertical',
-                left: 'right',
-                data: ['保送升学', '出国学习', '升学', '考取升学', '非全日制','灵活就业','定向就业','签约就业','非派遣','非派遣/劳动合同','未就业']
+                left: 'left',
+                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
             },
             series: [
                 {
@@ -213,17 +213,11 @@
                     center: ['50%', '60%'],
                     roseType: 'radius',
                     data: [
-                        {value: 12, name: '保送升学'},
-                        {value: 4, name: '出国学习'},
-                        {value: 61, name: '升学'},
-                        {value: 27, name: '考取升学'},
-                        {value: 1, name: '非全日制'},
-                        {value: 24, name: '灵活就业'},
-                        {value: 9, name: '定向就业'},
-                        {value: 166, name: '签约就业'},
-                        {value: 24, name: '非派遣'},
-                        {value: 3, name: '非派遣/劳动合同'},
-                        {value: 2, name: '未就业'}
+                        {value: 4, name: '出国学习 4'},
+                        {value: 101, name: '升学 101'},
+                        {value: 166, name: '签约就业 166'},
+                        {value: 60, name: '其他就业 60'},
+                        {value: 2, name: '未就业 2'},
 
                     ],
                     emphasis: {
