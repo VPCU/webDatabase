@@ -50,7 +50,7 @@
                 <div class="layui-card-header">升学率</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        30.0%
+                        31.5%
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 <div class="layui-card-header">最受欢迎的行业</div>
                 <div class="layui-card-body">
                     <div class="top-panel-number">
-                        信息传输软件和信息技术服务业 64.1%
+                        信息技术64.1%
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
 
         var optionRecords = {
             title: {
-                text: '升学率'
+                text: '就业情况'
             },
             tooltip: {
                 trigger: 'axis',
@@ -152,11 +152,35 @@
             ],
             series: [
                 {
-                    name: '升学率',
+                    name: '升学',
                     type: 'line',
                     stack: '总量',
                     areaStyle: {},
-                    data: [32, 27, 23]
+                    data: [30,31,40]
+                },   {
+                    name: '出国',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {},
+                    data: [2,2,0]
+                },   {
+                    name: '签约就业',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {},
+                    data: [49,64,53]
+                },   {
+                    name: '非派遣/劳动合同',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {},
+                    data: [2,1,24]
+                } ,   {
+                    name: '其他就业',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {},
+                    data: [15,20,0]
                 }
             ]
         };
@@ -169,7 +193,7 @@
         var echartsPies = echarts.init(document.getElementById('echarts-pies'), 'walden');
         var optionPies = {
             title: {
-                text: '毕业去向',
+                text: '毕业去向-玫瑰图',
                 left: 'center'
             },
             tooltip: {
@@ -178,8 +202,8 @@
             },
             legend: {
                 orient: 'vertical',
-                left: 'right',
-                data: ['保送升学', '出国学习', '升学', '考取升学', '非全日制','灵活就业','定向就业','签约就业','非派遣','非派遣/劳动合同','未就业']
+                left: 'left',
+                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
             },
             series: [
                 {
@@ -189,17 +213,11 @@
                     center: ['50%', '60%'],
                     roseType: 'radius',
                     data: [
-                        {value: 12, name: '保送升学'},
-                        {value: 4, name: '出国学习'},
-                        {value: 61, name: '升学'},
-                        {value: 27, name: '考取升学'},
-                        {value: 1, name: '非全日制'},
-                        {value: 24, name: '灵活就业'},
-                        {value: 9, name: '定向就业'},
-                        {value: 166, name: '签约就业'},
-                        {value: 24, name: '非派遣'},
-                        {value: 3, name: '非派遣/劳动合同'},
-                        {value: 2, name: '未就业'}
+                        {value: 4, name: '出国学习 4'},
+                        {value: 101, name: '升学 101'},
+                        {value: 166, name: '签约就业 166'},
+                        {value: 60, name: '其他就业 60'},
+                        {value: 2, name: '未就业 2'},
 
                     ],
                     emphasis: {
@@ -227,27 +245,25 @@
 <script src="../js/echarts/map/js/china.js"></script>
 <script>
 
-    function randomData() {
-        return Math.round(Math.random()*500);
-    }
+
     var dataList = [
-        {name: '北京',value: '100' },{name: '天津',value: randomData() },
-        {name: '上海',value: randomData() },{name: '重庆',value: randomData() },
-        {name: '河北',value: randomData() },{name: '河南',value: randomData() },
-        {name: '云南',value: randomData() },{name: '辽宁',value: randomData() },
-        {name: '黑龙江',value: randomData() },{name: '湖南',value: randomData() },
-        {name: '安徽',value: randomData() },{name: '山东',value: randomData() },
-        {name: '新疆',value: randomData() },{name: '江苏',value: randomData() },
-        {name: '浙江',value: randomData() },{name: '江西',value: randomData() },
-        {name: '湖北',value: randomData() },{name: '广西',value: randomData() },
-        {name: '甘肃',value: randomData() },{name: '山西',value: randomData() },
-        {name: '内蒙古',value: randomData() },{name: '陕西',value: randomData() },
-        {name: '吉林',value: randomData() },{name: '福建',value: randomData() },
-        {name: '贵州',value: randomData() },{name: '广东',value: randomData() },
-        {name: '青海',value: randomData() },{name: '西藏',value: randomData() },
-        {name: '四川',value: randomData() },{name: '宁夏',value: randomData() },
-        {name: '海南',value: randomData() },{name: '台湾',value: randomData() },
-        {name: '香港',value: randomData() },{name: '澳门',value: randomData() }
+        {name: '北京',value: '38' },{name: '天津',value: '5' },
+        {name: '上海',value: '8' },{name: '重庆',value: '2' },
+        {name: '河北',value: '3' },{name: '河南',value: '5'},
+        {name: '云南',value: '3' },{name: '辽宁',value: '4' },
+        {name: '黑龙江',value: '2'},{name: '湖南',value: '3'},
+        {name: '安徽',value: '3' },{name: '山东',value: '160' },
+        {name: '新疆',value: '6' },{name: '江苏',value: '11' },
+        {name: '浙江',value: '10' },{name: '江西',value: '1' },
+        {name: '湖北',value:'9'},{name: '广西',value:'5' },
+        {name: '甘肃',value: '4' },{name: '山西',value: '1' },
+        {name: '内蒙古',value: '1' },{name: '陕西',value: '6' },
+        {name: '吉林',value: '4' },{name: '福建',value: '1'},
+        {name: '贵州',value: '3'},{name: '广东',value:'10' },
+        {name: '青海',value: '0'},{name: '西藏',value: '2' },
+        {name: '四川',value: '12'},{name: '宁夏',value:'3' },
+        {name: '海南',value: '5'},{name: '台湾',value: '0'},
+        {name: '香港',value: '0' },{name: '澳门',value: '0'}
     ];
     var echartsRecords = echarts.init(document.getElementById('echarts-map'));
     var optionRecords = {
@@ -262,9 +278,9 @@
             x: 'left',
             y: 'center',
             splitList: [
-                {start: 500, end:600},{start: 400, end: 500},
-                {start: 300, end: 400},{start: 200, end: 300},
-                {start: 100, end: 200},{start: 0, end: 100},
+                {start: 100, end:200},{start: 10, end: 100},
+                {start: 4, end: 10},{start: 2, end: 4},
+                {start: 1, end: 2},{start: 0, end: 1},
             ],
             color: ['#5475f5', '#9feaa5', '#85daef','#74e2ca', '#e6ac53', '#9fb5ea']
         },
